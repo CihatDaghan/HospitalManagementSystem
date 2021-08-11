@@ -1,0 +1,55 @@
+﻿@using HospitalManagementSystem.Models
+@{
+    ViewData["Title"] = "Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .textcenter {
+        position: absolute;
+        right: 0px;
+        width: 35%;
+    }
+</style>
+<br />
+<div class="text-left row">
+    <h1 style="color:darkgray; font-family:Arial; font-size:30px; margin-right:70%;">Appointment</h1>
+    <button onclick="popupload()" class="btn btn-info">Add Appointment</button>
+</div>
+<hr />
+<div>
+    <form method="post" enctype="multipart/form-data" asp-controller="Appointment" asp-action="search">
+        <div class="row">
+            <div class="col-lg-2">
+                <span>Search:</span>
+                <input type="search" name="search" value="" class="form-control" />
+            </div>
+        </div>
+    </form>
+</div>
+<br />
+<br />
+<table class="table table-bordered ">
+    <tr>
+        <td>Doctor Name</td>
+        <td>Patient Name</td>
+        <td>Appointment Date</td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.doctor_name</td>
+            <td>@item.patient_name</td>
+            <td>@item.appointment_date</td>
+            <td><a href="/Appointment/AppointmentDelete/@item.ID" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+    </table>
+<script>
+    function popupload() {
+        popup = window.open("/Appointment/AppointmentAdd/", "",
+            "location=1,status=1,scrollbars=1,width=600,height=700");
+        popup.moveTo(1000, 250);
+    }
+
+</script>

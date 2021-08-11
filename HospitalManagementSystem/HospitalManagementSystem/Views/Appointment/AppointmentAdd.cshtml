@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PatientAdd</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <br />
+    <form class="form-group" method="post" enctype="multipart/form-data">
+
+        <br />
+        <b>Doctor Name:</b>
+        <select class="form-control" name="doctor_name">
+            @foreach (var item in ViewBag.Doctor)
+            {
+                <option value="@item.firstname @item.lastname">@item.firstname @item.lastname</option>
+            }
+        </select>
+        <br />
+        <b>Patient Name:</b>
+        <select class="form-control" name="patient_name">
+            @foreach (var item in ViewBag.Patients)
+            {
+                <option value="@item.firstname @item.lastname">@item.firstname @item.lastname</option>
+            }
+        </select>
+        <br />
+        <b>Appointment Date:</b>
+        <input type="date" name="appointment_date" class="form-control" required>
+        <br />
+        <br />
+        <button class="btn btn-danger">Appointment Add</button>
+    </form>
+
+    <br />
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+﻿@model HospitalManagementSystem.Models.Doctor
+@{
+    ViewData["Title"] = "Patient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("DoctorUpdate", "Doctor", FormMethod.Post))
+{
+    <b>ID:</b>
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <b>Firstname:</b>
+    @Html.TextBoxFor(x => x.firstname, new { @class = "form-control" })
+    <b>Lastname:</b>
+    @Html.TextBoxFor(x => x.lastname, new { @class = "form-control" })
+    <b>Insurance:</b>
+    @Html.TextBoxFor(x => x.number, new { @class = "form-control" })
+    <b>Adress:</b>
+    @Html.TextBoxFor(x => x.adress, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Update</button>
+}
+
+

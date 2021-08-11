@@ -1,0 +1,54 @@
+﻿@using HospitalManagementSystem.Models
+@{
+    ViewData["Title"] = "Patient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="text-left row">
+    <h1 style="color:darkgray; font-family:Arial; font-size:30px; margin-right:80%;">Patient</h1>
+    <button onclick="popupload()" class="btn btn-info">Add Patient</button>
+</div>
+<hr />
+<div >
+    <form method="post" enctype="multipart/form-data" asp-controller="Patient" asp-action="search">
+        <div class="row">
+            <div class="col-lg-2">
+                <span>Search:</span>
+                <input type="search" name="search" value="" class="form-control" />
+            </div>
+        </div>
+    </form>
+</div>
+<br />
+<br />
+<table class="table table-bordered ">
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Insurance</td>
+        <td>Adress</td>
+        <td>Phone Number </td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.firstname</td>
+            <td>@item.lastname</td>
+            <td>@item.insurance</td>
+            <td>@item.adress</td>
+            <td>@item.phone_number</td>
+            <td><a href="/Patient/PatientGet/@item.ID" class="btn btn-info">Edit</a></td>
+            <td><a href="/Patient/PatientDelete/@item.ID" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+</table>
+<script>
+        function popupload() {
+            popup = window.open("/Patient/PatientAdd/", "",
+                "location=1,status=1,scrollbars=1,width=600,height=700");
+            popup.moveTo(1000, 250);
+            }
+</script>

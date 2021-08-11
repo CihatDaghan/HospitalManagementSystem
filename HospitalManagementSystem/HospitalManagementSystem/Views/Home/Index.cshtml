@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<style>
+    .center {
+        margin: auto;
+        width: 110%;
+        padding: 10px;
+    }
+</style>
+<br />
+<div class="text-left">
+    <h1 style="color:darkgray; font-family:Arial; font-size:30px;">Home</h1>
+</div>
+<hr />
+<div class="w3-row-padding w3-margin-bottom center">
+    <a href="/Patient/Index">
+        <div class="w3-quarter" style="margin-right:7%;">
+            <div class="w3-container w3-green w3-padding-16">
+                <div class="w3-left"><i class="fa fa-share w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h2>@ViewBag.patients</h2>
+                </div>
+                <div class="w3-clear"></div>
+                <h4 class="w3-right">PATIENT</h4>
+            </div>
+        </div>
+    </a>
+    <a href="/Doctor/Index">
+        <div class="w3-quarter" style="margin-right:7%;">
+            <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left"><i class="fa fa-star w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h2>@ViewBag.doctor</h2>
+                </div>
+                <div class="w3-clear"></div>
+                <h4 class="w3-right">DOCTOR</h4>
+            </div>
+        </div>
+    </a>
+    <a href="/Appointment/Index">
+        <div class="w3-quarter" style="margin-right:7%;">
+            <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left"><i class="fa fa-star w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h2>@ViewBag.appointments</h2>
+                </div>
+                <div class="w3-clear"></div>
+                <h4 class="w3-right">APPOINTMENT</h4>
+            </div>
+        </div>
+        </a>
+</div>
+
